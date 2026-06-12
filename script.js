@@ -220,7 +220,7 @@ let pendingScroll = null;
 function show(page){
   Object.values(pages).forEach(p=>p.classList.remove('on'));
   pages[page].classList.add('on');
-  window.scrollTo({top:0,behavior:'instant'});
+  window.scrollTo({top:0,behavior:'auto'});
   document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 }
 function route(){
@@ -237,6 +237,12 @@ function route(){
 window.addEventListener('hashchange',route);
 
 document.addEventListener('click',e=>{
+  const caseCard = e.target.closest('.case');
+  if(caseCard && caseCard.getAttribute('href')){
+    e.preventDefault();
+    location.hash = caseCard.getAttribute('href');
+    return;
+  }
   const sc = e.target.closest('[data-scroll]');
   if(sc){
     e.preventDefault();
