@@ -206,6 +206,7 @@ const workGrid = document.getElementById('workGrid');
 CASES.forEach((c,i)=>{
   const a = document.createElement('a');
   a.href = '#/work/'+c.slug;
+  a.setAttribute('data-route','');
   a.className = 'case rv'+(c.wide?' wide':'')+(i%2?' rv-d1':'');
   a.innerHTML = `<div class="vis">${c.visHTML}</div>
     <span class="lift">${c.lift}</span>
@@ -240,7 +241,9 @@ document.addEventListener('click',e=>{
   const caseCard = e.target.closest('.case');
   if(caseCard && caseCard.getAttribute('href')){
     e.preventDefault();
-    location.hash = caseCard.getAttribute('href');
+    const href = caseCard.getAttribute('href');
+    if(location.hash !== href) location.hash = href;
+    route();
     return;
   }
   const sc = e.target.closest('[data-scroll]');
