@@ -317,9 +317,22 @@ function renderCase(slug){
 const nav = document.getElementById('nav');
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click',()=>{ navLinks.classList.toggle('open'); document.body.classList.toggle('menu-open'); });
-function closeMenu(){ navLinks.classList.remove('open'); document.body.classList.remove('menu-open'); }
+function syncMenuState(){
+  burger.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
+}
+burger.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+  syncMenuState();
+});
+function closeMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  syncMenuState();
+}
 navLinks.addEventListener('click',e=>{ if(e.target.closest('a')) closeMenu(); });
+closeMenu();
+matchMedia('(min-width:901px)').addEventListener('change',closeMenu);
 
 /* ==================== SCROLL FX ==================== */
 const spiralG = document.getElementById('spiralG');
