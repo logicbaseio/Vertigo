@@ -37,7 +37,7 @@ const BUDGETS = ['Under $2k','$2k – $5k','$5k – $15k','$15k – $50k','$50k+
 const TIMES = ['ASAP','Within a month','1–3 months','Just exploring'];
 
 const CASES = [
-  {slug:'atlas-foods',wide:true,client:'Atlas Foods',title:'Atlas Foods: packaging that stopped the scroll',
+  {slug:'atlas-foods',client:'Atlas Foods',title:'Atlas Foods: packaging that stopped the scroll',
    cat:'Brand Design / Campaign',lift:'+18% SALES UPLIFT',
    svcs:['brand-design','campaign-design','creative-direction'],
    snapshot:'A legacy food brand needed a cleaner shelf story, stronger campaign assets and a packaging system that could travel across retail and social without losing recognition.',
@@ -112,7 +112,7 @@ const CASES = [
    idea:'We turned the site into a plain-English sales tool that answered security, compliance and procurement questions without wasting time.',
    exec:'The new site shipped with cleaner navigation, tighter proof points and a stronger demo funnel.',
    stats:[['+34%','Demo requests'],['-22%','Bounce rate'],['5 wks','Launch time']],
-   quote:'We needed clarity more than cleverness. The new site made it easier for sales to start the conversation.',who:'Darren Cole, Commercial Director, Encytro',
+   quote:'We needed clarity more than cleverness. The new site made it easier for sales to start the conversation.',who:'Ben Trombley, Owner, Encytro',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(135deg,#0B0C0B,#1B1E1B 55%,#5BFA1E);display:grid;place-items:center"><div style="font-family:var(--mono);font-size:1rem;letter-spacing:.25em;color:#FAFAF6;border:1px solid rgba(255,255,255,.18);padding:1rem 1.2rem;border-radius:999px">ENCYTRO</div></div>',
    bg:'radial-gradient(circle at 70% 35%,#1c251d 0%,transparent 55%)'},
   {slug:'my-mummy-australia',client:'My Mummy Australia',title:'My Mummy Australia: turning expertise into booked calls',
@@ -125,7 +125,7 @@ const CASES = [
    idea:'We made the value proposition concrete and the content more useful, so the audience had a reason to respond.',
    exec:'The new funnel, content cadence and booking journey were launched together to avoid a leaky handoff between posts and sales.',
    stats:[['+41%','Webinar signups'],['+18%','Booked calls'],['3.2x','Lead-to-call rate']],
-   quote:'The advice became more actionable and the results followed. We stopped sounding generic.',who:'Melissa Hart, Founder, My Mummy Australia',
+   quote:'The advice became more actionable and the results followed. We stopped sounding generic.',who:'Emma Medafferi, Owner, My Mummy Australia',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(160deg,#F0F1EC,#EAFBDF 52%,#5BFA1E);display:grid;place-items:center"><div style="font-family:var(--disp);font-size:clamp(1.4rem,4vw,2.6rem);font-weight:700;color:#0B0C0B">MY MUMMY</div></div>',
    bg:'radial-gradient(circle at 35% 55%,#dce8d2 0%,transparent 55%)'},
   {slug:'alpmed-clinic',client:'Alpmed Clinic',title:'Alpmed Clinic: a more direct path to consultation bookings',
@@ -138,7 +138,7 @@ const CASES = [
    idea:'We made each treatment page more specific and more reassuring so the next step felt obvious.',
    exec:'The launch focused on service clarity, local SEO structure and conversion points that matched patient questions.',
    stats:[['+29%','Consult bookings'],['+17%','Organic traffic'],['-14%','Drop-off rate']],
-   quote:'Patients were spending less time hunting for information, which is exactly what we wanted.',who:'Dr. Aisha Rahman, Clinic Director, Alpmed Clinic',
+   quote:'Patients were spending less time hunting for information, which is exactly what we wanted.',who:'Murat Sonmez, Owner, Alpmed Clinic',
    visHTML:'<div class="vis-inner" style="background:radial-gradient(circle at 30% 35%,#EAFBDF 0%,#FAFAF6 45%,#5BFA1E 100%);display:grid;place-items:center"><div style="width:40%;aspect-ratio:1;border-radius:50%;background:#0B0C0B"></div></div>',
    bg:'radial-gradient(circle at 60% 30%,#d4e3cd 0%,transparent 55%)'},
   {slug:'pizza-hut',client:'Pizza Hut',title:'Pizza Hut: a regional campaign built around lunch urgency',
@@ -151,7 +151,7 @@ const CASES = [
    idea:'We focused on the actual decision window—what people order when they are hungry and short on time.',
    exec:'Short-form assets, offer messaging and paid placements were coordinated around local lunch and dinner demand.',
    stats:[['+12%','Lunch orders'],['+21%','App clicks'],['4 wks','Campaign cycle']],
-   quote:'The messaging was simple, which made it easier for the market team to run with it.',who:'Daniel Reed, Regional Marketing Manager, Pizza Hut',
+   quote:'The messaging was simple, which made it easier for the market team to run with it.',who:'Zain Dogar, Owner, Pizza Hut',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(135deg,#c61d2b,#f04d2d 55%,#0B0C0B);display:grid;place-items:center"><div style="font-family:var(--disp);font-weight:700;font-size:clamp(1.2rem,3vw,2rem);color:#FAFAF6">PIZZA HUT</div></div>',
    bg:'radial-gradient(circle at 65% 45%,#4b1b17 0%,transparent 55%)'},
   {slug:'waldor-watches',client:'Waldor Watches',title:'Waldor Watches: a product story with cleaner commercial intent',
@@ -164,7 +164,7 @@ const CASES = [
    idea:'We made the product pages feel more editorial while keeping the purchase path short.',
    exec:'The ecommerce refresh focused on product photography, better cross-sells and tighter copy around quality and gifting.',
    stats:[['+26%','Average order value'],['+17%','Conversion rate'],['5 wks','Store refresh']],
-   quote:'The product pages finally felt like they matched the price point.',who:'Hannah Lewis, Ecommerce Lead, Waldor Watches',
+   quote:'The product pages finally felt like they matched the price point.',who:'Andreas Christensson, Owner, Waldor Watches',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(135deg,#1B1E1B,#0B0C0B 55%,#8C918C);display:grid;place-items:center"><div style="width:110px;height:110px;border-radius:50%;border:2px solid #5BFA1E;display:grid;place-items:center;color:#FAFAF6;font-family:var(--mono);letter-spacing:.18em">W</div></div>',
    bg:'radial-gradient(circle at 30% 40%,#2a2d2a 0%,transparent 55%)'},
   {slug:'rock-n-rose',client:'Rock n Rose',title:'Rock n Rose: making skincare feel practical, not performative',
@@ -177,7 +177,7 @@ const CASES = [
    idea:'We made the brand more useful by explaining how the products fit into a normal routine.',
    exec:'The team shipped clearer product education, retention emails and repeat-purchase prompts across key pages.',
    stats:[['+31%','Subscription signups'],['+14%','Repeat purchases'],['-9%','Refund rate']],
-   quote:'The brand felt more grounded and the customers responded to that immediately.',who:'Priya Shah, Brand Manager, Rock n Rose',
+   quote:'The brand felt more grounded and the customers responded to that immediately.',who:'Mayoor Patel, Owner, Rock n Rose',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(135deg,#FAFAF6,#EAFBDF 40%,#5BFA1E);display:grid;place-items:center"><div style="font-family:var(--disp);font-weight:700;font-size:1.5rem;color:#0B0C0B">rock n rose</div></div>',
    bg:'radial-gradient(circle at 40% 40%,#dfe8d2 0%,transparent 55%)'},
   {slug:'simmons-capital',client:'Simmons Capital',title:'Simmons Capital: a clearer story for high-intent investors',
@@ -190,7 +190,7 @@ const CASES = [
    idea:'We clarified the proposition, improved the information hierarchy and made the firm feel more concrete and investable.',
    exec:'The site now routes prospects from the homepage into the right service and contact paths with less friction.',
    stats:[['+44%','Qualified inquiries'],['+23%','Time on site'],['5 wks','Site relaunch']],
-   quote:'The site finally matched the level of the business. It was easier for prospects to understand what we do.',who:'Thomas Evans, Partner, Simmons Capital',
+   quote:'The site finally matched the level of the business. It was easier for prospects to understand what we do.',who:'Donald Simmons, Owner, Simmons Capital',
    visHTML:'<div class="vis-inner" style="background:linear-gradient(135deg,#0B0C0B,#1B1E1B 55%,#5BFA1E);display:grid;place-items:center"><div style="font-family:var(--mono);color:#FAFAF6;letter-spacing:.28em">SIMMONS</div></div>',
    bg:'radial-gradient(circle at 60% 35%,#202620 0%,transparent 55%)'}
 ];
@@ -198,9 +198,9 @@ const CASES = [
 const VOICES = [
   {quote:'The work was straightforward, which is exactly what the brand needed. The team gave us a cleaner system and a campaign our sales people could actually use.',name:'Sara Ahmed',role:'Marketing Director, Atlas Foods',res:'+18% SALES UPLIFT',av:'SA'},
   {quote:'We stopped chasing random trends and finally had a content rhythm the team could sustain.',name:'James Whitfield',role:'Founder, Kayo Fitness',res:'+61% TRIALS',av:'JW'},
-  {quote:'The site finally matched the level of the business. It was easier for prospects to understand what we do.',name:'Thomas Evans',role:'Partner, Simmons Capital',res:'+44% INQUIRIES',av:'TE'},
-  {quote:'The messaging was simple, which made it easier for the market team to run with it.',name:'Daniel Reed',role:'Regional Marketing Manager, Pizza Hut',res:'+12% ORDERS',av:'DR'},
-  {quote:'Patients were spending less time hunting for information, which is exactly what we wanted.',name:'Dr. Aisha Rahman',role:'Clinic Director, Alpmed Clinic',res:'+29% CONSULTS',av:'AR'}
+  {quote:'The site finally matched the level of the business. It was easier for prospects to understand what we do.',name:'Donald Simmons',role:'Owner, Simmons Capital',res:'+44% INQUIRIES',av:'DS'},
+  {quote:'The messaging was simple, which made it easier for the market team to run with it.',name:'Zain Dogar',role:'Owner, Pizza Hut',res:'+12% ORDERS',av:'ZD'},
+  {quote:'Patients were spending less time hunting for information, which is exactly what we wanted.',name:'Murat Sonmez',role:'Owner, Alpmed Clinic',res:'+29% CONSULTS',av:'MS'}
 ];
 
 /* ==================== RENDER LISTS ==================== */
