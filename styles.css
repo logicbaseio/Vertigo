@@ -76,7 +76,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:500;line-height:1.06;letter-spacing
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 nav.scrolled{background:#000;backdrop-filter:none;border-color:rgba(255,255,255,.08);box-shadow:0 10px 28px rgba(0,0,0,.28)}
 .nav-in{max-width:1280px;margin:0 auto;padding:1.1rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:var(--disp);font-weight:700;font-size:1.05rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem}
+.logo{font-family:var(--disp);font-weight:700;font-size:1.05rem;letter-spacing:.06em;display:flex;align-items:center;gap:.32rem}
 .logo-mark{width:30px;height:30px;display:block;flex:0 0 auto;background:linear-gradient(135deg,#8CFF62 0%,#5BFA1E 52%,#3ED312 100%);-webkit-mask:url("./Logo%20new%201.png") center/contain no-repeat;mask:url("./Logo%20new%201.png") center/contain no-repeat;animation:logospin 9s linear infinite}
 .logo:hover .logo-mark{animation-duration:1.6s}
 @keyframes logospin{to{transform:rotate(360deg)}}
@@ -272,7 +272,8 @@ footer{background:var(--ink);border-top:1px solid var(--line-d);padding:5.5rem 0
 .foot-grid h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:1.2rem}
 .foot-grid a,.foot-grid p{display:block;color:var(--grey);font-size:.92rem;margin-bottom:.65rem;transition:color .25s}
 .foot-grid a:hover{color:var(--green)}
-.foot-logo{font-family:var(--disp);font-weight:700;font-size:1.5rem;margin-bottom:1rem}
+.foot-logo{font-family:var(--disp);font-weight:700;font-size:1.5rem;margin-bottom:1rem;display:flex;align-items:center;gap:.35rem}
+.foot-logo .logo-mark{width:34px;height:34px}
 .foot-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line-d);padding-top:2rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--grey-d)}
 @media (max-width:860px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
 
