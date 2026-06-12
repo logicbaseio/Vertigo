@@ -39,6 +39,7 @@ const TIMES = ['ASAP','Within a month','1–3 months','Just exploring'];
 const CASES = [
   {slug:'atlas-foods',wide:true,client:'Atlas Foods',title:'Atlas Foods: packaging that stopped the scroll',
    cat:'Brand Design / Campaign',lift:'+18% SALES UPLIFT',
+   svcs:['brand-design','campaign-design','creative-direction'],
    snapshot:'A legacy food brand needed a cleaner shelf story, stronger campaign assets and a packaging system that could travel across retail and social without losing recognition.',
    changes:['Rebuilt the packaging hierarchy around product clarity and shelf contrast.','Launched a campaign concept that worked in-store, on Meta and in short-form video.','Created a lightweight asset system the in-house team could repeat without redesigning it every week.'],
    timeline:[['Week 1','Research and audit'],['Week 2-3','Identity and packaging'],['Week 4-5','Campaign production'],['Week 6','Retail rollout']],
@@ -51,6 +52,7 @@ const CASES = [
    bg:'radial-gradient(circle at 70% 30%,#2E8F08 0%,transparent 55%)'},
   {slug:'kayo-fitness',client:'Kayo Fitness',title:'Kayo Fitness: turning short video into a growth channel',
    cat:'Social Growth / Content',lift:'+61% APP TRIALS',
+   svcs:['social-growth-acceleration','content-creation','copywriting'],
    snapshot:'A fitness app with strong product-market fit needed a repeatable content engine and a clearer social voice that could keep up with weekly launches.',
    changes:['Defined a content format the founder could appear in consistently without each post feeling improvised.','Built a batch-production workflow for hooks, edits and captions.','Added weekly performance reviews so the team could double down on what actually converted.'],
    timeline:[['Week 1','Content audit'],['Week 2','Format testing'],['Week 3-6','Production system'],['Week 7-12','Optimization']],
@@ -63,6 +65,7 @@ const CASES = [
    bg:'radial-gradient(circle at 30% 60%,#1B1E1B 0%,transparent 60%)'},
   {slug:'orbita',client:'Orbita',title:'Orbita: making a complex product easier to understand',
    cat:'Video / Launch Content',lift:'4.8M VIDEO VIEWS',
+   svcs:['video-animations','content-creation','creative-direction'],
    snapshot:'A hardware launch needed a clear story, stronger visuals and a set of edit variants the sales team could use across channels.',
    changes:['Turned the product explanation into a 90-second launch film.','Built platform cuts for web, paid social and founder-led selling.','Created motion assets for the site and pitch deck.'],
    timeline:[['Week 1','Messaging'],['Week 2','Storyboard'],['Week 3-4','Production'],['Week 5','Launch assets']],
@@ -75,6 +78,7 @@ const CASES = [
    bg:'radial-gradient(circle at 65% 40%,#3a4a35 0%,transparent 55%)'},
   {slug:'mona-skincare',client:'Mona Skincare',title:'Mona Skincare: performance creative that held its own in paid media',
    cat:'Media Buying / Copywriting',lift:'2.1X BLENDED ROAS',
+   svcs:['media-buying','copywriting','content-creation'],
    snapshot:'Paid media spend was climbing, creative fatigue was setting in, and the account needed a more disciplined test plan.',
    changes:['Rebuilt ad angles from real customer language.','Separated prospecting and retargeting creative so the account could test properly.','Reworked landing pages to match the ad promise and reduce drop-off.'],
    timeline:[['Week 1','Account audit'],['Week 2','Creative map'],['Week 3-5','Testing sprint'],['Week 6+','Optimization']],
@@ -87,6 +91,7 @@ const CASES = [
    bg:'radial-gradient(circle at 40% 30%,#2E4a22 0%,transparent 55%)'},
   {slug:'paperplane',client:'Paperplane',title:'Paperplane: an identity system built for fundraising',
    cat:'Brand Design / Direction',lift:'8-WEEK IDENTITY BUILD',
+   svcs:['brand-design','creative-direction','copywriting'],
    snapshot:'A travel startup needed a sharper identity and pitch system before a funding round, with everything delivered fast and consistent.',
    changes:['Defined a visual motif that worked across logo, deck and motion.','Built investor-facing slides and a cleaner narrative structure.','Packaged the identity so the internal team could extend it after launch.'],
    timeline:[['Week 1','Positioning'],['Week 2-3','Identity routes'],['Week 4-5','Deck and motion'],['Week 6-8','Rollout']],
@@ -99,6 +104,7 @@ const CASES = [
    bg:'radial-gradient(circle at 60% 50%,#1E2A18 0%,transparent 60%)'},
   {slug:'encytro',client:'Encytro',title:'Encytro: a compliance site that explained trust quickly',
    cat:'B2B Website / Lead Gen',lift:'+34% DEMO REQUESTS',
+   svcs:['copywriting','brand-design','media-buying'],
    snapshot:'A PCI compliance company needed a clearer story for procurement teams and a conversion-focused website with less jargon.',
    changes:['Simplified the service architecture so buyers could find answers faster.','Rewrote the site around risk, trust and implementation speed.','Added clearer calls to action for demos and security reviews.'],
    timeline:[['Week 1','Messaging audit'],['Week 2','Site map'],['Week 3-4','Copy and design'],['Week 5','Launch']],
@@ -111,6 +117,7 @@ const CASES = [
    bg:'radial-gradient(circle at 70% 35%,#1c251d 0%,transparent 55%)'},
   {slug:'my-mummy-australia',client:'My Mummy Australia',title:'My Mummy Australia: turning expertise into booked calls',
    cat:'Content / Funnel',lift:'+41% WEBINAR SIGNUPS',
+   svcs:['content-creation','copywriting','social-growth-acceleration'],
    snapshot:'A business coaching brand needed a clearer funnel and more credible content that felt like advice from a real operator, not a motivational poster.',
    changes:['Built a clearer lead magnet and booking flow.','Shifted the content strategy toward practical, step-by-step posts.','Created templates the founder could use without rewriting every caption from scratch.'],
    timeline:[['Week 1','Offer review'],['Week 2','Funnel design'],['Week 3-4','Content system'],['Week 5','Launch']],
@@ -123,6 +130,7 @@ const CASES = [
    bg:'radial-gradient(circle at 35% 55%,#dce8d2 0%,transparent 55%)'},
   {slug:'alpmed-clinic',client:'Alpmed Clinic',title:'Alpmed Clinic: a more direct path to consultation bookings',
    cat:'Healthcare / Local Growth',lift:'+29% CONSULTS',
+   svcs:['copywriting','brand-design','media-buying'],
    snapshot:'A body aesthetics and surgery clinic needed clearer service pages, stronger local intent and a cleaner path to consultations.',
    changes:['Separated service lines so each treatment had its own landing page.','Simplified the consultation booking flow.','Added trust signals and FAQs where patients were making decisions.'],
    timeline:[['Week 1','Discovery'],['Week 2','Content and IA'],['Week 3','Design'],['Week 4-5','Launch']],
@@ -135,6 +143,7 @@ const CASES = [
    bg:'radial-gradient(circle at 60% 30%,#d4e3cd 0%,transparent 55%)'},
   {slug:'pizza-hut',client:'Pizza Hut',title:'Pizza Hut: a regional campaign built around lunch urgency',
    cat:'Food Brand / Campaign',lift:'+12% LUNCH ORDERS',
+   svcs:['campaign-design','content-creation','media-buying'],
    snapshot:'A regional food campaign needed a sharper offer, stronger creative and a cleaner path from social to store or delivery.',
    changes:['Built fast-turnaround creative for lunch and evening peaks.','Clarified the offer so it read quickly on mobile.','Aligned social ads with landing-page and app destinations.'],
    timeline:[['Week 1','Offer planning'],['Week 2','Creative production'],['Week 3','Paid launch'],['Week 4','Iteration']],
@@ -147,6 +156,7 @@ const CASES = [
    bg:'radial-gradient(circle at 65% 45%,#4b1b17 0%,transparent 55%)'},
   {slug:'waldor-watches',client:'Waldor Watches',title:'Waldor Watches: a product story with cleaner commercial intent',
    cat:'Ecommerce / Brand',lift:'+26% AOV',
+   svcs:['brand-design','copywriting','media-buying'],
    snapshot:'A watches and wallets brand needed better product storytelling and a sharper ecommerce system that could support higher-value carts.',
    changes:['Reworked product pages to highlight materials, detail and gifting use cases.','Built better upsell paths for watches and wallets together.','Created social assets that felt premium without becoming stiff.'],
    timeline:[['Week 1','Catalog review'],['Week 2','Site and UX'],['Week 3-4','Content production'],['Week 5','Store launch']],
@@ -159,6 +169,7 @@ const CASES = [
    bg:'radial-gradient(circle at 30% 40%,#2a2d2a 0%,transparent 55%)'},
   {slug:'rock-n-rose',client:'Rock n Rose',title:'Rock n Rose: making skincare feel practical, not performative',
    cat:'Skincare / Health',lift:'+31% SUBSCRIPTIONS',
+   svcs:['content-creation','copywriting','media-buying'],
    snapshot:'A skincare and wellness brand needed clearer education, stronger retention messaging and a friendlier acquisition story.',
    changes:['Built ingredient-led landing pages for the hero products.','Shifted email and social content toward simple education.','Added subscription nudges at the right point in the customer journey.'],
    timeline:[['Week 1','Audience review'],['Week 2','Messaging'],['Week 3-4','Content rollout'],['Week 5','Retention pass']],
@@ -171,6 +182,7 @@ const CASES = [
    bg:'radial-gradient(circle at 40% 40%,#dfe8d2 0%,transparent 55%)'},
   {slug:'simmons-capital',client:'Simmons Capital',title:'Simmons Capital: a clearer story for high-intent investors',
    cat:'Finance / Lead Gen',lift:'+44% QUALIFIED INQUIRIES',
+   svcs:['copywriting','brand-design','creative-direction'],
    snapshot:'An investment firm needed a more credible digital presence and a lead path that appealed to sophisticated prospects without overexplaining the product.',
    changes:['Reworked the narrative around strategy, trust and process.','Built a more disciplined lead-gen funnel for high-intent visitors.','Added proof points and team credibility across the site.'],
    timeline:[['Week 1','Positioning'],['Week 2','Page structure'],['Week 3-4','Design and copy'],['Week 5','Launch']],
@@ -290,8 +302,9 @@ function renderCase(slug){
   document.getElementById('csQuote').textContent = '"'+c.quote+'"';
   document.getElementById('csQuoteWho').textContent = c.who;
   document.getElementById('csStats').innerHTML = c.stats.map(s=>`<div class="cs-stat"><div class="n">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('');
-  document.getElementById('csSvcs').innerHTML = c.svcs.map(sl=>{
-    const s = SERVICES.find(x=>x.slug===sl); return `<a class="chip-link" href="#/services/${sl}">${s.name}</a>`;
+  document.getElementById('csSvcs').innerHTML = (c.svcs || []).map(sl=>{
+    const s = SERVICES.find(x=>x.slug===sl);
+    return s ? `<a class="chip-link" href="#/services/${sl}">${s.name}</a>` : '';
   }).join('');
   const next = CASES[(i+1)%CASES.length];
   document.getElementById('csNext').setAttribute('href','#/work/'+next.slug);
