@@ -503,26 +503,208 @@ function buildPass(){
   const bar=document.getElementById('bpBar'); bar.innerHTML='';
   for(let i=0;i<34;i++){ const b=document.createElement('i'); b.style.height=(8+Math.random()*18)+'px'; bar.appendChild(b); }
 }
-fNext.onclick=()=>{
+
+function collectBrief(){
+  const v=id=>document.getElementById(id).value.trim();
+  return {
+    code,
+    submittedAt: new Date().toLocaleString('en-GB', { dateStyle:'medium', timeStyle:'short' }),
+    services: F.services.map(sl => SERVICES.find(s=>s.slug===sl)?.name || sl),
+    brand: v('fBrand'),
+    website: v('fSite'),
+    industry: v('fIndustry'),
+    stage: v('fStage'),
+    budget: F.budget,
+    timeline: F.time,
+    goals: v('fGoals'),
+    name: v('fName'),
+    email: v('fEmail'),
+    phone: v('fPhone'),
+    region: v('fRegion')
+  };
+}
+
+function briefMailto(brief){
+  const body=encodeURIComponent(
+`Flight code: ${brief.code}
+Submitted at: ${brief.submittedAt}
+
+Brand: ${brief.brand}
+Website: ${brief.website || 'N/A'}
+Industry: ${brief.industry}
+Stage: ${brief.stage}
+
+Services: ${brief.services.join(', ')}
+Budget: ${brief.budget}
+Timeline: ${brief.timeline}
+Region: ${brief.region}
+
+Contact: ${brief.name}, ${brief.email} ${brief.phone || ''}
+
+Goals:
+${brief.goals}`);
+  return `mailto:work@vertigodigital.co?subject=${encodeURIComponent('New project brief, '+brief.code+' · '+brief.brand)}&body=${body}`;
+}
+
+async function submitBrief(brief){
+  if(location.protocol === 'file:') return { ok:false, local:true };
+  const response = await fetch('/api/start-project', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(brief)
+  });
+  const result = await response.json().catch(()=>({}));
+  if(!response.ok || !result.ok) throw new Error(result.error || 'Could not send the brief.');
+  return result;
+}
+
+function setSubmitStatus(kind, message){
+  const status=document.getElementById('submitStatus');
+  if(!status) return;
+  status.className='submit-status '+kind;
+  status.textContent=message;
+}
+
+fNext.onclick=async ()=>{
   if(!valid()) return;
   if(step===4){ buildPass(); setStep(5); return; }
   if(step===5){
-    document.getElementById('finalCode').textContent=code;
-    const v=id=>document.getElementById(id).value.trim();
-    const names=F.services.map(sl=>SERVICES.find(s=>s.slug===sl).name).join(', ');
-    const body=encodeURIComponent(
-`Flight code: ${code}
-Brand: ${v('fBrand')} (${v('fIndustry')}, ${v('fStage')})
-Services: ${names}
-Budget: ${F.budget} | Timeline: ${F.time}
-Region: ${v('fRegion')}
-Contact: ${v('fName')}, ${v('fEmail')} ${v('fPhone')}
-Goals: ${v('fGoals')}`);
-    document.getElementById('mailBrief').href=`mailto:hello@vertigo.agency?subject=${encodeURIComponent('New project brief, '+code)}&body=${body}`;
-    setStep(6); return;
+    const brief = collectBrief();
+    const mailBrief = document.getElementById('mailBrief');
+    mailBrief.href = briefMailto(brief);
+    document.getElementById('err5').classList.remove('on');
+    fNext.disabled = true;
+    fNext.innerHTML = 'Sending brief <span class="arr">↗</span>';
+    try{
+      const sent = await submitBrief(brief);
+      document.getElementById('finalCode').textContent=code;
+      if(sent.local){
+        setSubmitStatus('warn','Local preview cannot send automatically. On Vercel, this submits to work@vertigodigital.co. Use the fallback button to test the email summary.');
+      }else{
+        setSubmitStatus('ok','Your complete request summary has been sent to work@vertigodigital.co.');
+      }
+      setStep(6);
+    }catch(error){
+      document.getElementById('err5').textContent = error.message || 'Automatic email failed. Use the email fallback button, or try again in a moment.';
+      document.getElementById('err5').classList.add('on');
+    }finally{
+      fNext.disabled = false;
+      if(step===5) fNext.innerHTML = 'Confirm & take off <span class="arr">→</span>';
+    }
+    return;
   }
   setStep(step+1);
 };
 fBack.onclick=()=>{ if(step>0) setStep(step-1); };
+
+function initCustomSelects(){
+  const closeAll = except => {
+    document.querySelectorAll('.v-select.open').forEach(el=>{
+      if(el!==except){
+        el.classList.remove('open');
+        const trigger = el.querySelector('.v-select-trigger');
+        if(trigger) trigger.setAttribute('aria-expanded','false');
+      }
+    });
+  };
+  document.querySelectorAll('.fld select').forEach(select=>{
+    if(select.dataset.customized) return;
+    select.dataset.customized = 'true';
+    select.classList.add('native-select');
+
+    const shell = document.createElement('div');
+    shell.className = 'v-select';
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'v-select-trigger';
+    trigger.setAttribute('aria-haspopup','listbox');
+    trigger.setAttribute('aria-expanded','false');
+    const value = document.createElement('span');
+    value.className = 'v-select-value';
+    trigger.appendChild(value);
+
+    const menu = document.createElement('div');
+    menu.className = 'v-select-menu';
+    menu.setAttribute('role','listbox');
+
+    const options = [...select.options];
+    options.forEach(option=>{
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'v-select-option';
+      item.textContent = option.textContent;
+      item.dataset.value = option.value;
+      item.setAttribute('role','option');
+      if(!option.value) item.classList.add('is-placeholder');
+      item.addEventListener('click',()=>{
+        select.value = option.value;
+        select.dispatchEvent(new Event('change',{bubbles:true}));
+        shell.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        trigger.focus();
+      });
+      menu.appendChild(item);
+    });
+
+    function sync(){
+      const current = select.options[select.selectedIndex] || select.options[0];
+      value.textContent = current ? current.textContent : 'Select…';
+      shell.classList.toggle('is-placeholder', !select.value);
+      menu.querySelectorAll('.v-select-option').forEach(item=>{
+        const active = item.dataset.value === select.value;
+        item.classList.toggle('selected', active);
+        item.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    trigger.addEventListener('click',()=>{
+      const willOpen = !shell.classList.contains('open');
+      closeAll(shell);
+      shell.classList.toggle('open', willOpen);
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+    trigger.addEventListener('keydown',e=>{
+      if(e.key==='ArrowDown' || e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        closeAll(shell);
+        shell.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        const selected = menu.querySelector('.selected') || menu.querySelector('.v-select-option');
+        if(selected) selected.focus();
+      }
+    });
+    menu.addEventListener('keydown',e=>{
+      const items = [...menu.querySelectorAll('.v-select-option')];
+      const idx = items.indexOf(document.activeElement);
+      if(e.key==='Escape'){
+        shell.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        trigger.focus();
+      }
+      if(e.key==='ArrowDown' || e.key==='ArrowUp'){
+        e.preventDefault();
+        const next = e.key==='ArrowDown' ? Math.min(idx+1,items.length-1) : Math.max(idx-1,0);
+        if(items[next]) items[next].focus();
+      }
+      if(e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        if(document.activeElement && document.activeElement.click) document.activeElement.click();
+      }
+    });
+    select.addEventListener('change',sync);
+    shell.append(trigger,menu);
+    select.insertAdjacentElement('afterend',shell);
+    sync();
+  });
+
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.v-select')) closeAll();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') closeAll();
+  });
+}
+
+initCustomSelects();
 
 route();
